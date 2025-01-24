@@ -1,27 +1,32 @@
 import React from 'react';
 
+import MovieCard from './MovieCard';
+
 export default function MovieList(props) {
+  const { movies, detailCard, saveMovie } = props;
   return (
     <div className="movie-list">
-      {props.movies.map(movie => (
-        <MovieDetails key={movie.id} movie={movie} />
+      {movies.map(movie => (
+        <MovieDetails 
+          key={movie.id} 
+          movie={movie} 
+          detailCard={detailCard} 
+          saveMovie={saveMovie} 
+        />
       ))}
     </div>
   );
 }
 
 function MovieDetails(props) {
-  const { title, director, metascore } = props.movie;
+  const { movie, detailCard, saveMovie } = props;
 
   return (
-    <div className="movie-card">
-      <h2>{title}</h2>
-      <div className="movie-director">
-        Director: <em>{director}</em>
-      </div>
-      <div className="movie-metascore">
-        Metascore: <strong>{metascore}</strong>
-      </div>
-    </div>
+    <MovieCard 
+      key={movie.id}
+      movie={movie} 
+      onClick={() => detailCard(movie.id)} 
+      saveMovie={saveMovie} 
+    />
   );
 }
