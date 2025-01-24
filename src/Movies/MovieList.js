@@ -27,6 +27,7 @@ function MovieDetails(props) {
       movie={movie} 
       onClick={() => detailCard(movie.id)} 
       saveMovie={saveMovie} 
+      showStars={true}
     />
   );
 }

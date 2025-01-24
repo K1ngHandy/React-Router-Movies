@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function MovieCard ({ movie, saveMovie }) {
+export default function MovieCard ({ movie, saveMovie, showStars }) {
   const { title, director, metascore, stars } = movie;
 
   return (
@@ -13,13 +13,18 @@ export default function MovieCard ({ movie, saveMovie }) {
         <div className="movie-metascore">
           Metascore: <strong>{metascore}</strong>
         </div>
-        <h3>Actors</h3>
 
-        {stars && stars.map(star => (
-          <div key={star} className="movie-star">
-            {star}
-          </div>
-        ))}
+        {showStars && (
+          <>
+            <h3>Actors</h3>
+
+            {stars && stars.map(star => (
+              <div key={star} className="movie-star">
+                {star}
+              </div>
+            ))}
+          </>
+        )}
       </div>
     <div className="save-button" onClick={() => saveMovie(movie.id)}>Save</div>
   </div>

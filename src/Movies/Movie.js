@@ -18,7 +18,7 @@ export default function Movie({ addSaved }) {
         setMovie(response.data);
       })
       .catch(error => {
-        console.error(error);
+        console.error('Error:', error);
       });
     // This effect should run every time time
     // the `id` changes... How could we do this?
@@ -35,26 +35,11 @@ export default function Movie({ addSaved }) {
 
   return (
     <div className='save-wrapper'>
-      <MovieCard movie={movie} saveMovie={() => addSaved(movie.id)} />
+      <MovieCard 
+        movie={movie} 
+        saveMovie={() => addSaved(movie.id)} 
+        showStars={true}
+        />
     </div>
-    // <div className="save-wrapper">
-    //   <div className="movie-card">
-    //     <h2>{title}</h2>
-    //     <div className="movie-director">
-    //       Director: <em>{director}</em>
-    //     </div>
-    //     <div className="movie-metascore">
-    //       Metascore: <strong>{metascore}</strong>
-    //     </div>
-    //     <h3>Actors</h3>
-
-    //     {stars.map(star => (
-    //       <div key={star} className="movie-star">
-    //         {star}
-    //       </div>
-    //     ))}
-    //   </div>
-    //   <div className="save-button" onClick={saveMovie}>Save</div>
-    // </div>
   );
 }
