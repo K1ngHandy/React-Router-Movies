@@ -43,6 +43,14 @@ body {
 .saved-movie {
   margin: 0 10px;
 }
+.saved-movie a {
+  text-decoration: none;
+  color: inherit;
+}
+.saved-movie a:hover {
+  color: cadetblue;
+  text-decoration: underline;
+}
 .saved-active {
   color: blue;
   border: 1px solid grey;

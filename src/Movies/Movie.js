@@ -4,8 +4,9 @@ import { useParams } from 'react-router-dom';
 
 import MovieCard from './MovieCard';
 
-export default function Movie({ addSaved }) {
+export default function Movie(props) {
   const [movie, setMovie] = useState(null);
+  const { addToSaved } = props;
   let { id } = useParams();
   // Change ^^^ that line and use a hook to obtain the :id parameter from the URL
 
@@ -25,19 +26,17 @@ export default function Movie({ addSaved }) {
   }, [id]);
 
   // Uncomment this only when you have moved on to the stretch goals
-  // const saveMovie = evt => { addSaved(id) };
+  // const saveMovie = evt => { addToSaved(id) };
 
   if (!movie) {
     return <div>Loading movie information...</div>;
   }
 
-  // const { title, director, metascore, stars } = movie;
-
   return (
     <div className='save-wrapper'>
       <MovieCard 
         movie={movie} 
-        saveMovie={() => addSaved(movie.id)} 
+        addToSaved={addToSaved}
         showStars={true}
         />
     </div>

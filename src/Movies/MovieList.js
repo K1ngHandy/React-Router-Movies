@@ -3,7 +3,8 @@ import React from 'react';
 import MovieCard from './MovieCard';
 
 export default function MovieList(props) {
-  const { movies, detailCard, saveMovie } = props;
+  const { movies, detailCard } = props;
+  
   return (
     <div className="movie-list">
       {movies.map(movie => (
@@ -11,7 +12,6 @@ export default function MovieList(props) {
           key={movie.id} 
           movie={movie} 
           detailCard={detailCard} 
-          saveMovie={saveMovie} 
         />
       ))}
     </div>
@@ -19,15 +19,14 @@ export default function MovieList(props) {
 }
 
 function MovieDetails(props) {
-  const { movie, detailCard, saveMovie } = props;
+  const { movie, detailCard } = props;
 
   return (
     <MovieCard 
       key={movie.id}
       movie={movie} 
-      onClick={() => detailCard(movie.id)} 
-      saveMovie={saveMovie} 
-      showStars={true}
+      detailCard={detailCard}
+      showStars={false}
     />
   );
 }
