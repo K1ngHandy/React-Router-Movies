@@ -31,13 +31,16 @@ body {
   position: relative;
   margin: 1rem auto;
   width: 75%;
+  height: fixed;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: row;
 }
 
 .saved-list h3 {
   margin-right: 10px;
+  white-space: nowrap;
 }
 
 .saved-movie {
@@ -49,7 +52,6 @@ body {
 }
 .saved-movie a:hover {
   color: cadetblue;
-  text-decoration: underline;
 }
 .saved-active {
   color: blue;
@@ -59,10 +61,11 @@ body {
 .save-wrapper {
   position: relative;
   width: 75%;
-  margin: 1rem auto;
+  margin: 0.5rem auto;
 }
 .save-button {
   position: absolute;
+  margin: 10px;
   top: 25px;
   right: 25px;
   border: 1px solid grey;
@@ -74,7 +77,19 @@ body {
   color: white;
 }
 
-.home-button {
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem;
+}
+
+.home-button, .clear-button {
   padding: 5px 10px;
   background-color: lightskyblue;
+  border: 1px solid grey;
+}
+
+.home-button:hover, .clear-button:hover {
+  background-color: green;
+  color: white;
 }

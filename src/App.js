@@ -42,13 +42,17 @@ export default function App () {
     navigate('/');
   };
 
+  const resetSaved = () => {
+    setSaved([]);
+  };
+
   const detailCard = id => {
     navigate(`movies/${id}`);
   };
 
   return (
     <div>
-      <SavedList list={saved} navigateHome={navigateHome} />
+      <SavedList list={saved} navigateHome={navigateHome} resetSaved={resetSaved} />
       <Routes>
         <Route path="/" element={
           <MovieList 
